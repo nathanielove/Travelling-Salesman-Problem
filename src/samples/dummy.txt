@@ -1,0 +1,12 @@
+Aa, Ba, Du, Fr, Du, Fr; 212.0
+Aa, Du, Fr, Be, Fr, Du; 213.0
+Aa, Be, Du, Du, Fr, Fr; 216.0
+Aa, Be, Du, Be, Fr, Fr; 217.0
+Aa, Ba, Du, Be, Fr, Fr; 232.0
+Aa, Du, Fr, Be, Du, Fr; 232.0
+Aa, Ba, Be, Fr, Du, Fr; 235.0
+Aa, Be, Fr, Du, Fr, Du; 235.0
+Aa, Ba, Fr, Du, Du, Fr; 250.0
+Aa, Ba, Fr, Be, Du, Fr; 251.0
+Aa, Ba, Be, Du, Fr, Fr; 254.0
+Aa, Be, Fr, Be, Du, Fr; 255.0
