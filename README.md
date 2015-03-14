@@ -128,7 +128,7 @@ Secondly, you need to define the following two methods in your class:
 
 * `public String[] constructText(RoadMap roadMap)`
 * `public RoadMap parseText(String[] lines)`
-* 
+
 Please note that each line in the text file cooresponds to an element in the `String[]`
 
 Thirdly, create a `FileProcessor` with your own `TextParser myParser`
