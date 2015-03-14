@@ -8,23 +8,21 @@ This is an extensible API to model TSP in Java, and to solve it with build-in st
 
 ##Classes at a Glance
 
-* **`Pair`**
+* **`class Pair`**
   - A pair of cities
   - The order doesn't matter
-* **`RoadMap`**: the logical map in a TSP, including
+* **`class RoadMap`**: the logical map in a TSP, including
   - City names 
   - Distances between any two cities
-* **`Tour`**: a solution of a TSP
+* **`class Tour`**: a solution of a TSP
   - Starting from & returning to a same city
   - Traversing other cities exactly once
-* **`Strategy`**
-  - An abstract class designed to be extended
+* **`abstract class Strategy`**
   - Given a `RoadMap` object, the `solve()` methods returns a `Tour` as solution
-* **`TextParser`**
-  - An interface
+* **`interface TextParser`**
   - Provides methods to convert `RoadMap` to `String[]`, and vice versa
   - Hence, `RoadMap` can be stored into a text file with pre-defined or user-defined format
-* **`FileProcessor`**
+* **`class FileProcessor`**
   - Uses `TextParser` objects
   - Read/write `RoadMap` objects from/to text files at given paths
   
