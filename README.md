@@ -14,7 +14,8 @@ This is an extensible API to model TSP in Java, and to solve it with build-in st
 * **`public class RoadMap`**: the logical map in a TSP, including
   - City names 
   - Distances between any two cities
-* **`public class Tour`**: a solution of a TSP
+* **`public class Tour`**:
+  - A solution of a TSP
   - Starting from & returning to a same city
   - Traversing other cities exactly once
 * **`public abstract class Strategy`**
