@@ -63,7 +63,7 @@ However, a distance matrix contains redundant data, as it stores twice infomatio
 RoadMap roadMap = new RoadMap(cities, pairs); //'cities' is same as above
 ```
 
-###Solve a TSP with a Built-in `Strategy`
+###Solve a TSP with a built-in `Strategy`
 
 As mentioned above, there are three built-in strategies - brute force, nearest neighbor, and farthest insertion. 
 
@@ -89,7 +89,7 @@ Then, we can print the result in the console using
 System.out.println(bruteForceSolution);
 ```
 
-###Define Your Own `Strategy`
+###Define your own `Strategy`
 The `Strategy` is an abstract class designed to be subclassed. To write your own strategy, simply `extends` this class, then include the following method in your class:
 
 ```java
@@ -112,7 +112,7 @@ Of cource you can also concatenate all the `addPair()` and `build()` into one li
 
 There are a lot of other useful methods in the `Tour.Builder` class, like `public boolean covers(String city)`, `public int size()`, etc. Please refer to the javadoc for more information.
 
-###Write/read Your `RoadMap` into/from a Text File
+###Write/read your `RoadMap` into/from a text file
 A `FileProcessor` can perform file read/write on a given file path. But internally, it relies on a `TextParser`, which provides methods to convert `RoadMap` to `String[]`, and vice versa. There are two built-in `FileProcessor`s, to handle distance matrices and pair lists respectively. The example below shows how to perform a read/write between a `RoadMap roadMap` and a text file at path `String path`.
 
 ```java
@@ -128,7 +128,7 @@ RoadMap roadMap = FileProcessor.PAIR_LIST.read(path);
 FileProcessor.PAIR_LIST.write(roadMap, path);
 ```
 
-###Define Your Own File Format
+###Define your own file format
 Firstly, you need to create a class that `implements` the `TextParser` interface.
 
 Secondly, you need to define the following two methods in your class:
