@@ -31,18 +31,11 @@ This is an extensible API to model TSP in Java, and to solve it with build-in st
 ##User Guide
 ###Create a `Pair` of cities
 
-Step 1: name the two cities with distinct strings
-
 ```java
-String cityA = "NYC";
-String cityB = "LA";
+Pair pair = new Pair("NYC", "LA");
 ```
 
-Step 2: create a `Pair` using `new`
-
-```java
-Pair pair = new Pair(cityA, cityB);
-```
+Please note that each city in the `Pair` is represented by a unique `String`.
 
 ###Create a `RoadMap`
 There are two approaches available. 
