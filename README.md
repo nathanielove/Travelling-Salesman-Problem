@@ -63,6 +63,88 @@ However, a distance matrix contains redundant data, as it stores twice infomatio
 RoadMap roadMap = new RoadMap(cities, pairs); //'cities' is same as above
 ```
 
-###Define a `Strategy`
+###Solve a TSP with a Built-in `Strategy`
 
+As mentioned above, there are three built-in strategies - brute force, nearest neighbor, and farthest insertion. 
 
+Supposed that we already have a `RoadMap roadMap` with 10 cities in the US, including `"NYC"`, `"LA"` and "`Chicago"`, the codes below demonstrate how to get an instance of each strategy.
+
+```java
+Strategy bruteForceStrategy = Strategy.bruteForce(roadMap);
+Strategy nearestNeighborStrategy = Strategy.nearestNeighbor(roadMap, "NYC"); //to start from NYC
+Strategy farthestInsertionStrategy = Strategy.farthestInseriton(roadMap, "NYC", "LA", "Chicago"); //to start with a triangle
+```
+
+We can get the solutions as
+
+```java
+Tour bruteForceSolution = bruteForceStrategy.solve();
+Tour nearestNeighborSolution = nearestNeighborStrategy.solve();
+Tour farthestInsertionSolution = farthestInsertionStrategy.solve();
+```
+
+Then, we can print the result in the console using
+
+```java
+System.out.println(bruteForceSolution);
+```
+
+###Define Your Own `Strategy`
+The `Strategy` is an abstract class designed to be subclassed. To write your own strategy, simply `extends` this class, then include the following method in your class:
+
+```java
+public Tour solve(){
+  ...
+}
+```
+
+In the definiton of your own method, you will need to build a `Tour` object by using the `Tour.Builder` class. A simple example of the builder is,
+
+```java
+Tour.Builder builder = new Tour.Builder(roadMap);
+builder.addPair("NYC", "LA");
+builder.addPair("LA", "Chicago");
+builder.addPair("Chicago", "NYC");
+Tour tour = builder.build();
+```
+
+Of cource you can also concatenate all the `addPair()` and `build()` into one line.
+
+There are a lot of other useful methods in the `Tour.Builder` class, like `public boolean covers(String city)`, `public int size()`, etc. Please refer to the javadoc for more information.
+
+###Write/read Your `RoadMap` into/from a Text File
+A `FileProcessor` can perform file read/write on a given file path. But internally, it relies on a `TextParser`, which provides methods to convert `RoadMap` to `String[]`, and vice versa. There are two built-in `FileProcessor`s, to handle distance matrices and pair lists respectively. The example below shows how to perform a read/write between a `RoadMap roadMap` and a text file at path `String path`.
+
+```java
+//text file in "distance matrix" format
+RoadMap roadMap = FileProcessor.DISTANCE_MATRIX.read(path);
+FileProcessor.DISTANCE_MATRIX.write(roadMap, path);
+```
+Or, 
+
+```java
+//text file in "pair list" format
+RoadMap roadMap = FileProcessor.PAIR_LIST.read(path);
+FileProcessor.PAIR_LIST.write(roadMap, path);
+```
+
+###Define Your Own File Format
+Firstly, you need to create a class that `implements` the `TextParser` interface.
+
+Secondly, you need to define the following two methods in your class:
+
+* `public String[] constructText(RoadMap roadMap)`
+* `public RoadMap parseText(String[] lines)`
+* 
+Please note that each line in the text file cooresponds to an element in the `String[]`
+
+Thirdly, create a `FileProcessor` with your own `TextParser myParser`
+
+```java
+FileProcessor myProcessor = new FileProcessor(myParser);
+```
+
+Finally, you can use the `read()` and `write()` methods in your `myProcessor`.
+
+##More Resources
+Please refer to the java doc for more information.
