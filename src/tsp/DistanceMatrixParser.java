@@ -7,11 +7,11 @@ package tsp;
 import java.util.Vector;
 
 
-class DistanceTableParser implements TextParser {
+class DistanceMatrixParser implements TextParser {
 	
-	protected static final TextParser INSTANCE = new DistanceTableParser();
+	protected static final TextParser INSTANCE = new DistanceMatrixParser();
 
-	private DistanceTableParser() {
+	private DistanceMatrixParser() {
 
 	}
 

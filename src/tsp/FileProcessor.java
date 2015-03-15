@@ -17,7 +17,7 @@ public class FileProcessor {
 	/**
 	 * A built-in FileProcessor to process text files in distance table format
 	 */
-	public static final FileProcessor DISTANCE_TABLE = new FileProcessor(DistanceTableParser.INSTANCE);
+	public static final FileProcessor DISTANCE_MATRIX = new FileProcessor(DistanceMatrixParser.INSTANCE);
 	
 	/**
 	 * A built-in FileProcessor to process text files in pair list format
